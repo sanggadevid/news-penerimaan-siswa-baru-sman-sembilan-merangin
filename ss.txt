@@ -1,0 +1,49 @@
+<section style="margin-top:100px" class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="table table-responsive">
+                        <table class="table table-bordered table-striped" id="example1">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>jk</th>
+                                    <th>TTL</th>
+                                    <th>SMP Asal</th>
+                                    <th>Alamat</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $be = mysqli_query($con, "SELECT * FROM psb ORDER BY id_psb ASC ");
+                                $no = 1;
+                                while ($r = mysqli_fetch_assoc($be)) {
+                                ?>
+
+                                    <tr>
+                                        <td><?= $no; ?></td>
+                                      
+                                        <td><?= $r["nama_siswa"]; ?></td>
+                                        <td><?= $r["jk_siswa"]; ?></td>
+                                        <td><?= $r["tmpt_lahir"]; ?>, <?= $r["tgl_lahir"]; ?></td>
+                                        <td><?= $r["smp_asal"]; ?></td>
+                                        <td><?= $r["kelurahan"]; ?>, <?= $r["kecamatan"]; ?>, <?= $r["kab_kota"]; ?></td>
+                                         <td></td>
+                                    </tr>
+                                <?php $no++;
+                                } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+    <!-- /.box -->
+</section>
